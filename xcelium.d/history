@@ -1,0 +1,7 @@
+//
+// File created by:  xrun
+// Do not modify this file
+
+s1::(08Feb2023:01:55:00):( xrun -gui -access +rwc -sv core/my_module.sv mytestbench.sv -timescale 1ns/1ps )
+s2::(08Feb2023:01:55:25):( xrun -gui -access +rwc -sv core/my_module.sv mytestbench.sv -timescale 1ns/1ps )
+s3::(08Feb2023:01:55:33):( xrun -gui -access +rwc -sv core/my_module.sv mytestbench.sv -timescale 1ns/1ps )

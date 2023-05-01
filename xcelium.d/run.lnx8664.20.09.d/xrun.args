@@ -1,0 +1,12 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+-gui
+-access
++rwc
+-sv
+core/my_module.sv
+mytestbench.sv
+-timescale
+1ns/1ps
