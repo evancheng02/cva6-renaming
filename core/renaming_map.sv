@@ -33,14 +33,14 @@ module renaming_map import ariane_pkg::*; #(
     logic [PHYS_REG_WIDTH-1:0] rs2;
     logic [PHYS_REG_WIDTH-1:0] rd;
 
-    // TODO: ADD DATA STRUCTURES TO EXECUTE REGISTER RENAMING
+    // TODO: ADD STRUCTURES TO EXECUTE REGISTER RENAMING
 
     // Positive clock edge used for renaming new instructions
     always @(posedge clk_i, negedge rst_ni) begin
-        // Processor reset: clear renaming state to initial conditions    
+        // Processor reset: revert renaming state to reset conditions    
         if (~rst_ni) begin
 
-            // TODO: ADD LOGIC TO CLEAR RENAMING STATE
+            // TODO: ADD LOGIC TO RESET RENAMING STATE
     
         // New incoming valid instruction to rename   
         end else if (fetch_entry_ready_i && issue_n.valid) begin
@@ -50,7 +50,7 @@ module renaming_map import ariane_pkg::*; #(
             rd = issue_n.sbe.rd[PHYS_REG_WIDTH-1:0];
 
             // Set outgoing instruction to incoming instruction without
-            // renaming by default. Keep this since all fields of the 
+            // renaming by default. Keep this line since all fields of the 
             // incoming issue_struct_t should carry over to the output
             // except for the register values, which you may rename below
             issue_q = issue_n;
@@ -72,7 +72,7 @@ module renaming_map import ariane_pkg::*; #(
     // Negative clock edge used for physical register deallocation 
     always @(negedge clk_i) begin
         if (rst_ni) begin
-            // If there is a new committing instruction and its rd is not r0,
+            // If there is a new committing instruction and its prd is not pr0,
             // execute register deallocation logic to reuse physical registers
             if (we_gp_i && waddr_i != 0) begin
         
