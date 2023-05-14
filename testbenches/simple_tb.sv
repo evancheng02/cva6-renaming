@@ -127,7 +127,7 @@ module simple_tb import ariane_pkg::*; #(
                  issue_q.sbe.rs2[PHYS_REG_WIDTH-1:0]);
         fetch_entry_ready_i = 1'b0; // No new instruction
         we_gp_i = 1'b1;
-        waddr_i = 5; // I4 commit
+        waddr_i = 3; // I4 commit
     end
 
     renaming_map i_renaming_map (
